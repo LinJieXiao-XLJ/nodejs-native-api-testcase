@@ -1,0 +1,24 @@
+{
+  "name": "nodejs-native-api-testcase",
+  "version": "3.0.0",
+  "description": "IoTDB Node.js Native API Test Cases",
+  "scripts": {
+    "test": "npx jest --config jest.config.cjs --verbose --forceExit --runInBand",
+    "test:tree": "npx jest --config jest.config.cjs --verbose --forceExit tests/tree/",
+    "test:table": "npx jest --config jest.config.cjs --verbose --forceExit tests/table/",
+    "test:integration": "npx jest --config jest.integration.config.cjs --verbose --forceExit --runInBand",
+    "coverage": "c8 --all --src=lib/@iotdb/client --exclude='**/thrift/**' --exclude='**/*.d.ts' --reporter=text --reporter=text-summary --reporter=html --reporter=lcov --clean node node_modules/jest-cli/bin/jest.js --config jest.config.cjs --verbose --forceExit --runInBand",
+    "coverage:text": "c8 --all --src=lib/@iotdb/client --exclude='**/thrift/**' --exclude='**/*.d.ts' --reporter=text --reporter=text-summary --clean node node_modules/jest-cli/bin/jest.js --config jest.config.cjs --verbose --forceExit --runInBand",
+    "coverage:html": "c8 --all --src=lib/@iotdb/client --exclude='**/thrift/**' --exclude='**/*.d.ts' --reporter=html --clean node node_modules/jest-cli/bin/jest.js --config jest.config.cjs --verbose --forceExit --runInBand"
+  },
+  "dependencies": {
+    "c8": "^12.0.0",
+    "denque": "^2.1.0",
+    "node-int64": "^0.4.0",
+    "thrift": "^0.21.0"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jest-cli": "^29.7.0"
+  }
+}

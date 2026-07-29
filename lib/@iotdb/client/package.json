@@ -1,0 +1,61 @@
+{
+  "name": "@iotdb/client",
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "0.1.0",
+  "description": "Apache IoTDB Node.js client with SessionPool and TableSessionPool support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npm run build:esbuild && npm run build:types && npm run copy:thrift",
+    "build:esbuild": "node esbuild.config.js",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build:tsc": "tsc && npm run copy:thrift",
+    "copy:thrift": "mkdir -p dist/thrift/generated && cp -r src/thrift/generated/*.js src/thrift/generated/*.d.ts dist/thrift/generated/",
+    "generate:thrift": "rm -rf src/thrift/generated/*.js src/thrift/generated/*.d.ts && thrift --gen js:node,ts -out src/thrift/generated thrift/client.thrift",
+    "test": "jest",
+    "test:unit": "jest --testPathPatterns=tests/unit",
+    "test:e2e": "jest --testPathPatterns=tests/e2e",
+    "test:e2e:debug": "node --inspect-brk node_modules/.bin/jest --runInBand --testPathPatterns=tests/e2e",
+    "test:e2e:check-handles": "jest --testPathPatterns=tests/e2e --detectOpenHandles --forceExit",
+    "test:debug": "node --inspect-brk node_modules/.bin/jest --runInBand",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.ts\" \"tests/**/*.ts\"",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "iotdb",
+    "timeseries",
+    "database",
+    "thrift",
+    "apache"
+  ],
+  "author": "",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "denque": "^2.1.0",
+    "thrift": "^0.23.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.11",
+    "@types/node": "^20.10.6",
+    "@types/thrift": "^0.10.14",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
+    "esbuild": "^0.25.0",
+    "eslint": "^9.18.0",
+    "globals": "^15.15.0",
+    "jest": "^30.2.0",
+    "prettier": "^3.1.1",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.3.3"
+  },
+  "overrides": {
+    "test-exclude": "^7.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
