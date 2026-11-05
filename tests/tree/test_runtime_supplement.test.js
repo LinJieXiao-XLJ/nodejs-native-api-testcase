@@ -21,7 +21,7 @@ const {
 const HOST = process.env.IOTDB_HOST || '127.0.0.1';
 const PORT = Number(process.env.IOTDB_PORT || 6667);
 const USERNAME = process.env.IOTDB_USER || 'root';
-const PASSWORD = process.env.IOTDB_PASSWORD || 'root';
+const PASSWORD = process.env.IOTDB_PASSWORD || 'TimechoDB@2021';
 const DB = 'root.v2_977_supplement';
 
 function config(overrides = {}) {

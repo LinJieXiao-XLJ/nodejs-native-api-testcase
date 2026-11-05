@@ -4,6 +4,7 @@
  * Author：肖林捷  Date：2026/07/23
  */
 'use strict';
+const env = require('../helpers/testEnv');
 const { Session, ConfigBuilder, TSDataType, TreeTablet } = require('../../lib/@iotdb/client/index.js');
 
 describe('Session 连接管理', () => {
@@ -14,14 +15,14 @@ describe('Session 连接管理', () => {
   describe('构造与生命周期', () => {
 
     test('最简参数构造', () => {
-      session = new Session({ host: '127.0.0.1', port: 6667 });
+      session = new Session({ host: env.HOST, port: env.PORT, username: env.USERNAME, password: env.PASSWORD });
       expect(session).toBeDefined();
     });
 
     test('ConfigBuilder 构建配置', () => {
       session = new Session(
-        new ConfigBuilder().host('127.0.0.1').port(6667)
-          .username('root').password('root').fetchSize(5000).build()
+        new ConfigBuilder().host(env.HOST).port(env.PORT)
+          .username(env.USERNAME).password(env.PASSWORD).fetchSize(5000).build()
       );
       expect(session).toBeDefined();
     });
@@ -39,21 +40,22 @@ describe('Session 连接管理', () => {
   describe('ConfigBuilder 完整参数', () => {
 
     test('指定 fetchSize', () => {
-      const cfg = new ConfigBuilder().host('127.0.0.1').port(6667).fetchSize(5000).build();
+      const cfg = new ConfigBuilder().host(env.HOST).port(env.PORT)
+        .username(env.USERNAME).password(env.PASSWORD).fetchSize(5000).build();
       session = new Session(cfg);
       expect(session).toBeDefined();
     });
 
     test('指定 timezone', () => {
-      const cfg = new ConfigBuilder().host('127.0.0.1').port(6667)
-        .username('root').password('root').timezone('+08:00').build();
+      const cfg = new ConfigBuilder().host(env.HOST).port(env.PORT)
+        .username(env.USERNAME).password(env.PASSWORD).timezone('+08:00').build();
       session = new Session(cfg);
       expect(session).toBeDefined();
     });
 
     test('指定 enableSSL', () => {
-      const cfg = new ConfigBuilder().host('127.0.0.1').port(6667)
-        .enableSSL(true).build();
+      const cfg = new ConfigBuilder().host(env.HOST).port(env.PORT)
+        .username(env.USERNAME).password(env.PASSWORD).enableSSL(true).build();
       session = new Session(cfg);
       expect(session).toBeDefined();
     });

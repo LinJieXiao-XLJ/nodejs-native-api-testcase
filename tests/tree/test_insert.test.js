@@ -3,13 +3,14 @@
  * Describe：模仿 concurrent-operations.ts 中 insertTablets / insertTabletsParallel 写法
  */
 'use strict';
+const env = require('../helpers/testEnv');
 const { Session, ConfigBuilder, TreeTablet, TSDataType } = require('../../lib/@iotdb/client/index.js');
 
 describe('树模型-数据写入', () => {
   let session;
   beforeEach(() => {
     session = new Session(
-      new ConfigBuilder().host('127.0.0.1').port(6667).username('root').password('root').build()
+      new ConfigBuilder().host(env.HOST).port(env.PORT).username(env.USERNAME).password(env.PASSWORD).build()
     );
   });
   afterEach(async () => { if (session) { try { await session.close(); } catch (_) {} } });
