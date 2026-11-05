@@ -3,10 +3,10 @@
  * Describe：模仿 basic-session.ts 示例，端到端验证 Session 完整流程
  */
 'use strict';
+const env = require('../helpers/testEnv');
 const { Session, ConfigBuilder, TSDataType, TreeTablet } = require('../../lib/@iotdb/client/index.js');
 
-const HOST = '127.0.0.1', PORT = 6667;
-const cfg = () => new ConfigBuilder().host(HOST).port(PORT).username('root').password('root').build();
+const cfg = () => new ConfigBuilder().host(env.HOST).port(env.PORT).username(env.USERNAME).password(env.PASSWORD).build();
 const DB = 'root.test_nodejs';
 
 describe('树模型集成测试（真实 IoTDB）', () => {

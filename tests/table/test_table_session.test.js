@@ -3,6 +3,7 @@
  * Describe：模仿 table-session-pool.ts 示例
  */
 'use strict';
+const env = require('../helpers/testEnv');
 const { TableSession, TableSessionPool, PoolConfigBuilder, ColumnCategory } = require('../../lib/@iotdb/client/index.js');
 
 describe('表模型 TableSession', () => {
@@ -11,24 +12,24 @@ describe('表模型 TableSession', () => {
 
   test('TableSession 构造', () => {
     session = new TableSession({
-      host: '127.0.0.1', port: 6667,
-      username: 'root', password: 'root',
+      host: env.HOST, port: env.PORT,
+      username: env.USERNAME, password: env.PASSWORD,
     });
     expect(session).toBeDefined();
   });
 
   test('TableSession 带 database 参数', () => {
     session = new TableSession({
-      host: '127.0.0.1', port: 6667,
-      username: 'root', password: 'root',
+      host: env.HOST, port: env.PORT,
+      username: env.USERNAME, password: env.PASSWORD,
       database: 'test_db',
     });
     expect(session).toBeDefined();
   });
 
   test('TableSessionPool 构造', () => {
-    const pool = new TableSessionPool('localhost', 6667, {
-      username: 'root', password: 'root',
+    const pool = new TableSessionPool(env.HOST, env.PORT, {
+      username: env.USERNAME, password: env.PASSWORD,
       database: 'test_db', maxPoolSize: 10,
     });
     expect(pool).toBeDefined();
