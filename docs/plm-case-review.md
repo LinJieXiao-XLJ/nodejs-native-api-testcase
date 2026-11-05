@@ -68,4 +68,4 @@
 - 76 执行机 Node 22.23.1：`npm ci` 成功；`sh start.sh prepare` 成功。
 - 76 本地 TimechoDB（127.0.0.1:6667）：Jest 全量 **36 passed / 36 total**（约 2 秒）。
 - K8s 实例 spike：由于 36 条不实际连接数据库，连接 `native-java-20261102` 仍通过；重定向未触发。
-- PLM 执行结果待补。
+- PLM run 816（2026-11-05 19:26）：**SUCCESS，36/36 passed，0 failed/error/skipped**，约 74 秒；K8s 实例 `tdb-plm-dadae7af8e224e67997f9c93bb9bd871`、Native 模板 revision 1；导入编号 `TimechoDB-3363 ~ 3398`。
