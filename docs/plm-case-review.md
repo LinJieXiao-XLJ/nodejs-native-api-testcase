@@ -1,6 +1,6 @@
 # Node.js 原生接口用例导入审查（2026-11-05）
 
-基线：`LinJieXiao-XLJ/nodejs-native-api-testcase` `main@1b77c8b`。共 **36** 条，与 Jest 实际执行的 36 条一致。
+基线：`LinJieXiao-XLJ/nodejs-native-api-testcase` `main@1b77c8b`。共 **46** 条，与 Jest 实际执行的 46 条一致（含 10 条真实连库集成测试）。
 
 ## 一、总体分布
 
@@ -69,3 +69,9 @@
 - 76 本地 TimechoDB（127.0.0.1:6667）：Jest 全量 **36 passed / 36 total**（约 2 秒）。
 - K8s 实例 spike：由于 36 条不实际连接数据库，连接 `native-java-20261102` 仍通过；重定向未触发。
 - PLM run 816（2026-11-05 19:26）：**SUCCESS，36/36 passed，0 failed/error/skipped**，约 74 秒；K8s 实例 `tdb-plm-dadae7af8e224e67997f9c93bb9bd871`、Native 模板 revision 1；导入编号 `TimechoDB-3363 ~ 3398`。
+
+## 五、2026-11-06 集成测试启用
+
+- `jest.config.cjs` 移除 `test_integration.test.js` / `test_runtime_supplement.test.js` 的排除，`testTimeout` 提高到 120s。
+- 新增 10 条真实连库用例（模块：`树模型-集成`、`树模型-运行时补充`），PLM 走执行机本地 TimechoDB（`session-nodejs` 不再要求 K8s 实例）。
+- 76 本地 TimechoDB 2.0.12.1 上全量 **46/46 passed**（约 8 秒）。
