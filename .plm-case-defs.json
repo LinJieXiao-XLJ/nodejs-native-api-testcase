@@ -229,7 +229,9 @@
       "executeMethod": "自动",
       "featurePaths": [
         "接口模块/Node.js 原生接口/树模型-集成"
-      ]
+      ],
+      "plmCaseId": "TimechoDB-3399",
+      "plmId": 7970
     },
     {
       "target": "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 元数据操作 重复创建同名数据库应抛错",
@@ -242,7 +244,9 @@
       "executeMethod": "自动",
       "featurePaths": [
         "接口模块/Node.js 原生接口/树模型-集成"
-      ]
+      ],
+      "plmCaseId": "TimechoDB-3400",
+      "plmId": 7971
     },
     {
       "target": "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 数据写入与查询 CREATE TIMESERIES + insertTablet + executeQueryStatement",
@@ -255,7 +259,9 @@
       "executeMethod": "自动",
       "featurePaths": [
         "接口模块/Node.js 原生接口/树模型-集成"
-      ]
+      ],
+      "plmCaseId": "TimechoDB-3401",
+      "plmId": 7972
     },
     {
       "target": "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 数据写入与查询 SessionDataSet close 后可正常结束",
@@ -268,7 +274,9 @@
       "executeMethod": "自动",
       "featurePaths": [
         "接口模块/Node.js 原生接口/树模型-集成"
-      ]
+      ],
+      "plmCaseId": "TimechoDB-3402",
+      "plmId": 7973
     },
     {
       "target": "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 清理 DELETE DATABASE",
@@ -281,7 +289,9 @@
       "executeMethod": "自动",
       "featurePaths": [
         "接口模块/Node.js 原生接口/树模型-集成"
-      ]
+      ],
+      "plmCaseId": "TimechoDB-3403",
+      "plmId": 7974
     },
     {
       "target": "tests/tree/test_metadata.test.js::树模型-数据库与元数据 CREATE DATABASE + SHOW DATABASES 流程",
@@ -489,7 +499,9 @@
       "executeMethod": "自动",
       "featurePaths": [
         "接口模块/Node.js 原生接口/树模型-运行时补充"
-      ]
+      ],
+      "plmCaseId": "TimechoDB-3404",
+      "plmId": 7975
     },
     {
       "target": "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） Session.insertTablets 使用一次 RPC 并精确写入多个设备",
@@ -502,7 +514,9 @@
       "executeMethod": "自动",
       "featurePaths": [
         "接口模块/Node.js 原生接口/树模型-运行时补充"
-      ]
+      ],
+      "plmCaseId": "TimechoDB-3405",
+      "plmId": 7976
     },
     {
       "target": "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） Session.insertTabletsParallel 真实调用逐 Tablet RPC 并全部落库",
@@ -515,7 +529,9 @@
       "executeMethod": "自动",
       "featurePaths": [
         "接口模块/Node.js 原生接口/树模型-运行时补充"
-      ]
+      ],
+      "plmCaseId": "TimechoDB-3406",
+      "plmId": 7977
     },
     {
       "target": "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） SessionPool 借还、并发写入、Dataset close 和 pool.close 均释放资源",
@@ -528,7 +544,9 @@
       "executeMethod": "自动",
       "featurePaths": [
         "接口模块/Node.js 原生接口/树模型-运行时补充"
-      ]
+      ],
+      "plmCaseId": "TimechoDB-3407",
+      "plmId": 7978
     },
     {
       "target": "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） 独立 20000 行、fetchSize=100 时应真实调用 fetchResultsV2",
@@ -541,7 +559,9 @@
       "executeMethod": "自动",
       "featurePaths": [
         "接口模块/Node.js 原生接口/树模型-运行时补充"
-      ]
+      ],
+      "plmCaseId": "TimechoDB-3408",
+      "plmId": 7979
     },
     {
       "target": "tests/tree/test_session.test.js::Session 连接管理 ConfigBuilder 完整参数 指定 enableSSL",
