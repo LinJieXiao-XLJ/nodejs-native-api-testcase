@@ -11,7 +11,12 @@ const DB = 'root.test_nodejs';
 
 describe('树模型集成测试（真实 IoTDB）', () => {
   let session;
-  beforeEach(async () => { session = new Session(cfg()); await session.open(); }, 30000);
+  beforeEach(async () => {
+    session = new Session(cfg());
+    await session.open();
+    // PLM 逐条执行：每条用例独立进程、顺序不保证；统一清理共享库，避免用例间状态污染
+    try { await session.executeNonQueryStatement('DELETE DATABASE ' + DB); } catch (_) {}
+  }, 30000);
   afterEach(async () => { if (session) { try { await session.close(); } catch (_) {} } });
 
   describe('元数据操作', () => {
@@ -25,12 +30,14 @@ describe('树模型集成测试（真实 IoTDB）', () => {
     }, 30000);
 
     test('重复创建同名数据库应抛错', async () => {
+      await session.executeNonQueryStatement('CREATE DATABASE ' + DB);
       await expect(session.executeNonQueryStatement('CREATE DATABASE ' + DB)).rejects.toThrow();
     }, 30000);
   });
 
   describe('数据写入与查询', () => {
     test('CREATE TIMESERIES + insertTablet + executeQueryStatement', async () => {
+      await session.executeNonQueryStatement('CREATE DATABASE ' + DB);
       const d = DB + '.d1';
       await session.executeNonQueryStatement('CREATE TIMESERIES ' + d + '.s1 WITH DATATYPE=FLOAT, ENCODING=RLE');
       await session.executeNonQueryStatement('CREATE TIMESERIES ' + d + '.s2 WITH DATATYPE=TEXT, ENCODING=PLAIN');
@@ -62,6 +69,7 @@ describe('树模型集成测试（真实 IoTDB）', () => {
 
   describe('清理', () => {
     test('DELETE DATABASE', async () => {
+      await session.executeNonQueryStatement('CREATE DATABASE ' + DB);
       await session.executeNonQueryStatement('DELETE DATABASE ' + DB);
       const ds = await session.executeQueryStatement('SHOW DATABASES');
       let found = false;
