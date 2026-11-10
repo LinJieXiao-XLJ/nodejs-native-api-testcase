@@ -107,6 +107,36 @@
     ],
     "TimechoDB-3398": [
       "tests/tree/test_session.test.js::TreeTablet 构造（模仿 basic-session.ts 示例） plain object 方式（兼容旧 API）"
+    ],
+    "TimechoDB-3399": [
+      "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 元数据操作 CREATE DATABASE + SHOW DATABASES"
+    ],
+    "TimechoDB-3400": [
+      "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 元数据操作 重复创建同名数据库应抛错"
+    ],
+    "TimechoDB-3401": [
+      "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 数据写入与查询 CREATE TIMESERIES + insertTablet + executeQueryStatement"
+    ],
+    "TimechoDB-3402": [
+      "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 数据写入与查询 SessionDataSet close 后可正常结束"
+    ],
+    "TimechoDB-3403": [
+      "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 清理 DELETE DATABASE"
+    ],
+    "TimechoDB-3404": [
+      "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） LargeQuery 的 5011 行由共享设备残留时间点和 SELECT * 确定性产生"
+    ],
+    "TimechoDB-3405": [
+      "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） Session.insertTablets 使用一次 RPC 并精确写入多个设备"
+    ],
+    "TimechoDB-3406": [
+      "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） Session.insertTabletsParallel 真实调用逐 Tablet RPC 并全部落库"
+    ],
+    "TimechoDB-3407": [
+      "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） SessionPool 借还、并发写入、Dataset close 和 pool.close 均释放资源"
+    ],
+    "TimechoDB-3408": [
+      "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） 独立 20000 行、fetchSize=100 时应真实调用 fetchResultsV2"
     ]
   },
   "revmap": {
@@ -145,7 +175,17 @@
     "tests/tree/test_session.test.js::Session 连接管理 构造与生命周期 最简参数构造": "TimechoDB-3395",
     "tests/tree/test_session.test.js::Session 连接管理 构造与生命周期 缺 host 和 nodeUrls 抛异常": "TimechoDB-3396",
     "tests/tree/test_session.test.js::TreeTablet 构造（模仿 basic-session.ts 示例） new TreeTablet + addRow 方式": "TimechoDB-3397",
-    "tests/tree/test_session.test.js::TreeTablet 构造（模仿 basic-session.ts 示例） plain object 方式（兼容旧 API）": "TimechoDB-3398"
+    "tests/tree/test_session.test.js::TreeTablet 构造（模仿 basic-session.ts 示例） plain object 方式（兼容旧 API）": "TimechoDB-3398",
+    "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 元数据操作 CREATE DATABASE + SHOW DATABASES": "TimechoDB-3399",
+    "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 元数据操作 重复创建同名数据库应抛错": "TimechoDB-3400",
+    "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 数据写入与查询 CREATE TIMESERIES + insertTablet + executeQueryStatement": "TimechoDB-3401",
+    "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 数据写入与查询 SessionDataSet close 后可正常结束": "TimechoDB-3402",
+    "tests/tree/test_integration.test.js::树模型集成测试（真实 IoTDB） 清理 DELETE DATABASE": "TimechoDB-3403",
+    "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） LargeQuery 的 5011 行由共享设备残留时间点和 SELECT * 确定性产生": "TimechoDB-3404",
+    "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） Session.insertTablets 使用一次 RPC 并精确写入多个设备": "TimechoDB-3405",
+    "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） Session.insertTabletsParallel 真实调用逐 Tablet RPC 并全部落库": "TimechoDB-3406",
+    "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） SessionPool 借还、并发写入、Dataset close 和 pool.close 均释放资源": "TimechoDB-3407",
+    "tests/tree/test_runtime_supplement.test.js::V2-977 补充运行时验证（真实 IoTDB） 独立 20000 行、fetchSize=100 时应真实调用 fetchResultsV2": "TimechoDB-3408"
   },
   "aliases": {}
 }
